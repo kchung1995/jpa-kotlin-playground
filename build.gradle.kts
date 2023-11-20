@@ -9,6 +9,8 @@ plugins {
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.spring") version kotlinVersion
     kotlin("plugin.jpa") version kotlinVersion
+
+    id("org.jlleitschuh.gradle.ktlint") version "11.6.1"
 }
 
 group = "com.katfun"

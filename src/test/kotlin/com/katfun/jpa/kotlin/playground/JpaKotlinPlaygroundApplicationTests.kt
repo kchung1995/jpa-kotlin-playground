@@ -9,5 +9,4 @@ class JpaKotlinPlaygroundApplicationTests {
     @Test
     fun contextLoads() {
     }
-
 }
