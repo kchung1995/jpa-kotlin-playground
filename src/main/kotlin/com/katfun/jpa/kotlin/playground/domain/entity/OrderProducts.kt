@@ -13,8 +13,8 @@ class OrderProducts(
     @Id
     val id: Long?,
 
-    @Column(name = "order_id")
-    val orderId: Long,
+    @Column(name = "order_master_id")
+    val orderMasterId: Long,
 
     @Column(name = "product_id")
     val productId: Long,

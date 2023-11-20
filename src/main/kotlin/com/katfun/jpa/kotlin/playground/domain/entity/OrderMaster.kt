@@ -10,7 +10,7 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 
 @Entity
-class Order(
+class OrderMaster(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
     @Id
