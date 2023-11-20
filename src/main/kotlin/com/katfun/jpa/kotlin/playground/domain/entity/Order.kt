@@ -16,7 +16,7 @@ class Order(
     @Id
     val id: Long?,
 
-    @Column
+    @Column(name = "member_id")
     val memberId: Long,
 
     @Enumerated(EnumType.STRING)

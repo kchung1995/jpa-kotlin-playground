@@ -13,12 +13,12 @@ class Product(
     @Id
     val id: Long?,
 
-    @Column
+    @Column(name = "name")
     var name: String,
 
-    @Column
+    @Column(name = "price")
     var price: Long,
 
-    @Column
+    @Column(name = "stock_quantity")
     var stockQuantity: Long?
 )

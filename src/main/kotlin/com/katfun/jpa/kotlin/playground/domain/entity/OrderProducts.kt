@@ -13,15 +13,15 @@ class OrderProducts(
     @Id
     val id: Long?,
 
-    @Column
+    @Column(name = "order_id")
     val orderId: Long,
 
-    @Column
+    @Column(name = "product_id")
     val productId: Long,
 
-    @Column
+    @Column(name = "price")
     var price: Long,
 
-    @Column
+    @Column(name = "count")
     var count: Int
 )

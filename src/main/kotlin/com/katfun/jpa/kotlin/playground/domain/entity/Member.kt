@@ -13,15 +13,15 @@ class Member(
     @Id
     val id: Long?,
 
-    @Column
+    @Column(name = "name")
     val name: String,
 
-    @Column
+    @Column(name = "city")
     var city: String?,
 
-    @Column
+    @Column(name = "street")
     var street: String?,
 
-    @Column
+    @Column(name = "zipcode")
     var zipcode: String?
 )
