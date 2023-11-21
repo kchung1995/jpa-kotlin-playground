@@ -5,6 +5,7 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import jakarta.persistence.OneToMany
 
 @Entity
 class Member(
@@ -23,5 +24,8 @@ class Member(
     var street: String?,
 
     @Column(name = "zipcode")
-    var zipcode: String?
+    var zipcode: String?,
+
+    @OneToMany(mappedBy = "member")
+    val orders: ArrayList<OrderMaster>
 )

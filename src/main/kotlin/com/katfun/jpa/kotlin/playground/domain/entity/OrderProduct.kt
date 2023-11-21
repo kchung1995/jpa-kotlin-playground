@@ -5,19 +5,23 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import jakarta.persistence.JoinColumn
+import jakarta.persistence.ManyToOne
 
 @Entity
-class OrderProducts(
+class OrderProduct(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_products_id")
     @Id
     val id: Long?,
 
-    @Column(name = "order_master_id")
-    val orderMasterId: Long,
+    @ManyToOne
+    @JoinColumn(name = "order_master_id")
+    var order: OrderMaster?,
 
-    @Column(name = "product_id")
-    val productId: Long,
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    var product: Product?,
 
     @Column(name = "price")
     var price: Long,

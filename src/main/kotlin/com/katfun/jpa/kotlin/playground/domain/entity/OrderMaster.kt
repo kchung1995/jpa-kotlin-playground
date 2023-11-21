@@ -8,6 +8,9 @@ import jakarta.persistence.Enumerated
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import jakarta.persistence.JoinColumn
+import jakarta.persistence.ManyToOne
+import jakarta.persistence.OneToMany
 
 @Entity
 class OrderMaster(
@@ -16,9 +19,24 @@ class OrderMaster(
     @Id
     val id: Long?,
 
-    @Column(name = "member_id")
-    val memberId: Long,
+    @ManyToOne
+    @JoinColumn(name = "member_id")
+    var member: Member?,
+
+    @OneToMany(mappedBy = "order")
+    val orderProducts: ArrayList<OrderProduct>,
 
     @Enumerated(EnumType.STRING)
     val status: OrderStatusType
-)
+) {
+    fun setMemberConvenience(member: Member) {
+        if (this.member != null) this.member?.orders?.remove(this)
+        this.member = member
+        member.orders.add(this)
+    }
+
+    fun addOrderProduct(orderProduct: OrderProduct) {
+        orderProducts.add(orderProduct)
+        orderProduct.order = this
+    }
+}
